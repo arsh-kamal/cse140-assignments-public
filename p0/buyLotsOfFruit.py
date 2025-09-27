@@ -27,10 +27,13 @@ def buyLotsOfFruit(orderList):
 
     Returns cost of order
     """
-
-    # *** Your Code Here ***
-
-    return None
+    totalCost = 0.0
+    for fruit, weight in orderList:
+        if fruit not in FRUIT_PRICES:
+            print("Error: %s not found in price list." % fruit)
+            return None
+        totalCost += FRUIT_PRICES[fruit] * weight
+    return totalCost
 
 def main():
     orderList = [
@@ -38,7 +41,6 @@ def main():
         ('pears', 3.0),
         ('limes', 4.0)
     ]
-
     print("Cost of %s is %s." % (orderList, buyLotsOfFruit(orderList)))
 
 if __name__ == '__main__':
